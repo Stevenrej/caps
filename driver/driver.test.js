@@ -1,7 +1,7 @@
 'use strict';
 
 const eventPool = require('../eventPool');
-const handleBrain = require('./brainHandler');
+const driverHandler = require('./driver');
 
 jest.mock('../eventPool.js', () => {
   return {
@@ -11,15 +11,10 @@ jest.mock('../eventPool.js', () => {
 });
 console.log = jest.fn();
 
-describe('Handle Brain', () => {
-  test('emit dilation event to close the pupils', () => {
-    handleBrain({brightness: 55});
-    expect(console.log).toHaveBeenCalledWith('Brain: Brightness changed!', {brightness: 55});
-    expect(eventPool.emit).toHaveBeenCalledWith('DILATION', 'close');
-  });
-  test('emit dilation event to open the pupils', () => {
-    handleBrain({brightness: 45});
-    expect(console.log).toHaveBeenCalledWith('Brain: Brightness changed!', {brightness: 45});
-    expect(eventPool.emit).toHaveBeenCalledWith('DILATION', 'open');
+describe('Handle Driver', () => {
+  test('emit transit', () => {
+    driverHandler({payload});
+    expect(console.log).toHaveBeenCalledWith(`Driver: Recived  ${payload}`);
+    expect(eventPool.emit).toHaveBeenCalledWith('TRANSIT'), payload;
   });
 });
