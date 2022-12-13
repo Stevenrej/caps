@@ -1,0 +1,25 @@
+{
+  "name": "event-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.1.9",
+    "eslint": "^8.29.0",
+    "jest": "^29.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stevenrej/caps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Stevenrej/caps/issues"
+  },
+  "homepage": "https://github.com/Stevenrej/caps#readme",
+  "description": ""
+}
