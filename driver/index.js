@@ -1,11 +1,11 @@
 'use strict';
 
-let driverHandler = require('./driver');
+const eventPool = require('../eventPool');
+let {driverPickUp, driverDelivered} = require('./driver');
 
-module.exports = (payload) => {
-  setTimeout(() => {
-    driverHandler(payload);
-  
-  }, 1000);
-};
+eventPool.on('PICK_UP', driver);
 
+function driver(payload){
+  driverPickUp(payload);
+  driverDelivered(payload);
+}

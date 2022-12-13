@@ -3,21 +3,25 @@
 
 let eventPool = require('../eventPool');
 
-module.exports = (payload) => {
 
+
+function driverPickUp(payload) {
   setTimeout(() => {
-  console.log(`Driver: Recived  ${payload}`  );
+    console.log(`Driver: Order has been picked up and is in transit`, payload.orderId);
 
-  eventPool.emit('TRANSIT', payload);
-}, 2000);
+    eventPool.emit('TRANSIT', payload);
+  }, 1500);
+}
 
 
+function driverDelivered(payload) {
+  setTimeout(() => {
+    console.log(`Driver: Order has been delivered at:`, payload.address
+    );
+    eventPool.emit('DELIVERED', payload);
+  }, 3000);
+}
 
-    setTimeout(() => {
-      console.log(`Driver: Order has been delivered` 
-      );
-      eventPool.emit('DELIVERED', payload);
-    }, 6000);
-  };
+module.exports = { driverPickUp, driverDelivered};
 
 
