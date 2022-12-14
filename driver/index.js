@@ -1,11 +1,14 @@
 'use strict';
 
-let driverHandler = require('./driver');
+const { io } = require('socket.io-client');
+const socket = io('http://localhost:3001/hub');
 
-module.exports = (payload) => {
-  setTimeout(() => {
-    driverHandler(payload);
-  
-  }, 1000);
-};
 
+let {driverPickUp, driverDelivered} = require('./driver');
+
+socket.on('PICK_UP', driver);
+
+function driver(payload){
+  driverPickUp(payload);
+  driverDelivered(payload);
+}
