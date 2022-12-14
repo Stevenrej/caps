@@ -1,9 +1,11 @@
 'use strict';
 
-const eventPool = require('../eventPool');
+const { io } = require('socket.io-client');
+const socket = io('http://localhost:3001/hub');
+
 const { pickUp, delivered } = require('./vendor');
 
-eventPool.on('DELIVERED', delivered);
+socket.on('DELIVERED', delivered);
 
 
 setInterval(() => {

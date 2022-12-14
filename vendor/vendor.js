@@ -1,9 +1,11 @@
 'use strict';
 
-const eventPool = require('../eventPool');
+
 const Chance = require('chance');
 const chance = new Chance();
 
+const { io } = require('socket.io-client');
+const socket = io('http://localhost:3001/hub');
 
 
 function pickUp (payload = null) {
@@ -13,8 +15,8 @@ function pickUp (payload = null) {
     customer: chance.name(),
     address: chance.address(),
   };
-  console.log(`Vendor:  new incoming order, sending info to the vendor `, payload);
-  eventPool.emit('PICK_UP',  payload );
+  console.log(`Vendor:  new incoming order, sending info to the driver `, payload);
+  socket.emit('PICK_UP',  payload );
 }
 
 function delivered (payload) {
