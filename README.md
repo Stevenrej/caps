@@ -1,4 +1,4 @@
-# LAB - Class 08
+# LAB - Class 13
 
 ## Project: CAPS
 
