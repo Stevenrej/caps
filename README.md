@@ -6,7 +6,7 @@
 
 ### Problem Domain
 
-CAPS Phase 1: Begin the build of an application for a product called CAPS - The Code Academy Parcel Service. In this sprint, we’ll build out a system that emulates a real world supply chain. CAPS will simulate a delivery service where vendors (such a flower shops) will ship products using our delivery service and when our drivers deliver them, each vendor will be notified that their customers received what they purchased.
+CAPS Phase 3: Begin the build of an application for a product called CAPS - The Code Academy Parcel Service. In this sprint, we’ll build out a system that emulates a real world supply chain. CAPS will simulate a delivery service where vendors (such a flower shops) will ship products using our delivery service and when our drivers deliver them, each vendor will be notified that their customers received what they purchased.
 
 CAPS Phase 2: Continue working on a multi-day build of our delivery tracking system, creating an event observable over a network with Socket.io.
 
@@ -26,6 +26,7 @@ n/a
 
 node server/index.js
 node vendor/index.js
+node vendor2/index.js
 node driver/index.js
 
 #### Features / Routes
@@ -42,7 +43,7 @@ testing to make sure every event is being run
 
 #### UML
 
-![uml](lab12.jpeg)
+![uml](lab13.jpeg)
 
 
 #### Credit
