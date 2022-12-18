@@ -30,6 +30,7 @@ function outputPayload () {
     address: chance.address(),
     queueId: 'acme-widgets',
     messageId: chance.guid(),
+    driverId: 'OurPS',
   };
 };
 
@@ -37,7 +38,7 @@ function outputPayload () {
 
 
 setInterval(() => {
-  console.log('Message from Vendor:  new incoming order, sending info to the driver sent' );
+  console.log('Vendor:  new incoming order, sending info to the driver sent' );
   let payload = outputPayload();
   console.log(payload);
   socket.emit('PICK_UP', payload);

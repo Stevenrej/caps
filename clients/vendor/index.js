@@ -1,15 +1,13 @@
 'use strict';
 
 
-
-// const Client = require('../lib/messageClient');
 const { io } = require('socket.io-client');
 const socket = io('http://localhost:3001/hub');
 
 const Chance = require('chance');
 const chance = new Chance();
 
-// const  {outputPayload}  = require('./vendor');
+
 
 socket.emit('JOIN', '1-206-flowers');
 
@@ -33,6 +31,7 @@ function outputPayload () {
     address: chance.address(),
     queueId: '1-206-flowers',
     messageId: chance.guid(),
+    driverId: 'OurPS',
   };
 };
 
@@ -40,7 +39,7 @@ function outputPayload () {
 
 
 setInterval(() => {
-  console.log('Message from Vendor:  new incoming order, sending info to the driver sent' );
+  console.log('Vendor:  new incoming order, sending info to the driver sent' );
   let payload = outputPayload();
   console.log(payload);
   socket.emit('PICK_UP', payload);
