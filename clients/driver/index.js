@@ -4,7 +4,7 @@ const { io } = require('socket.io-client');
 const socket = io('http://localhost:3001/hub');
 
 
-
+// ghhhh9pkl
 
 function driverPickUp(payload) {
 
@@ -22,7 +22,6 @@ function driverDelivered(payload) {
 
 }
 
-// clientConnect.publish('CATCH_UP_DRIVER', { queueId: 'vendor'});
 
 socket.on('PICK_UP', driver);
 

@@ -27,9 +27,8 @@ hub.on('connection', (socket) => {
 
   socket.on('PICK_UP', (payload) => {
     console.log('Server PICK_UP event', payload);
-    console.log('we are here-------')
     socket.broadcast.emit('PICK_UP', payload);
-    console.log('we are here 2')
+
   });
 
   socket.on('RECEIVED', (payload) => {
@@ -37,12 +36,12 @@ hub.on('connection', (socket) => {
     if(!currentQueue){
       throw new Error('no queue');
     }
-    let deliver = currentQueue.remove(payload.messageId);
-    console.log('This was removed', deliver);
+     currentQueue.remove(payload.orderId);
+    console.log('Server RECEIVED event')
   })
 
   socket.on('TRANSIT', (payload) => {
-    console.log('Server TRANSIT event', payload);
+    console.log('Server TRANSIT event', payload.orderId);
   });
 
 
